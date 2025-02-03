@@ -380,6 +380,7 @@ p {
   box-shadow: 0.79px 3.18px 21.46px 0px rgba(0, 0, 0, 0.11);
   background: rgba(255, 255, 255, 1);
   border: none;
+  min-height: 435px;
 }
 
 .studies-carousel .card-img-top {
@@ -932,4 +933,28 @@ p {
   .about-section .info-box:last-child{
     margin: 0;
   }
+}
+
+
+/* Add these to your existing CSS */
+
+/* Prevent layout shifts */
+[data-animate] {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Smooth transitions for hover states */
+.card, .btn, .course-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Performance optimizations */
+.owl-carousel .owl-stage {
+  will-change: transform;
+}
+
+/* Hide overflow for staggered animations */
+.research-section, .reports-section {
+  overflow: hidden;
 }

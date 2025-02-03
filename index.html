@@ -56,17 +56,17 @@
 
   <!-- Structured Data (JSON-LD) for SEO -->
   <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    "name": "تمكين",
-    "url": "https://tamkeen.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://tamkeen.com/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "تمكين",
+      "url": "https://tamkeen.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://tamkeen.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
-  }
   </script>
 </head>
 
@@ -303,7 +303,8 @@
         <div class="item">
           <div class="research-card d-flex align-items-center p-3">
             <div class="img-placeholder me-3">
-              <img src="https://dummyimage.com/100x100/888/000" alt="أبحاث حول التوازن بين العمل والحياة" class="img-fluid" />
+              <img src="https://dummyimage.com/100x100/888/000" alt="أبحاث حول التوازن بين العمل والحياة"
+                class="img-fluid" />
             </div>
             <div class="research-content">
               <h5 class="fw-bold mb-2">
@@ -350,7 +351,8 @@
                     تقرير مفصل عن برامج التمكين المجتمعي للمرأة
                   </h5>
                   <p class="card-text text-muted">
-                    يقدم التقرير تحليلاً شاملاً للبرامج المجتمعية التي تساهم في تمكين المرأة وتطوير مهاراتها في مجالات عدة.
+                    يقدم التقرير تحليلاً شاملاً للبرامج المجتمعية التي تساهم في تمكين المرأة وتطوير مهاراتها في مجالات
+                    عدة.
                   </p>
                   <div class="d-flex align-items-center justify-content-between mt-3">
                     <div class="text-muted small date">
@@ -654,16 +656,39 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <!-- jQuery is loaded first as a dependency -->
   <script src="js/jquery-3.7.1.min.js" type="text/javascript"></script>
-  <!-- Owl Carousel Script -->
   <script src="js/owl.carousel.min.js" type="text/javascript"></script>
-  <!-- Bootstrap Bundle Script -->
   <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
-
-  <!-- Defer our main script to improve performance -->
   <script src="js/script.js" type="text/javascript" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    // GSAP timeline for the hero section
+    gsap.timeline({
+        defaults: {
+          duration: 1,
+          ease: "power3.out"
+        }
+      })
+      .from(".hero-section .content h1", {
+        opacity: 0,
+        y: -50
+      })
+      .from(".hero-section .content h4", {
+        opacity: 0,
+        y: -30
+      }, "-=0.5")
+      .from(".hero-section .buttons-group a", {
+        opacity: 0,
+        x: -30,
+        stagger: 0.2
+      }, "-=0.5")
+      .from(".hero-section img", {
+        opacity: 0,
+        x: 30
+      }, "-=0.5");
+  </script>
 </body>
 
 </html>
