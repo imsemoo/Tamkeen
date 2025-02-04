@@ -958,3 +958,283 @@ p {
 .research-section, .reports-section {
   overflow: hidden;
 }
+
+
+/* Hero Section for Articles Page */
+.hero-section2 {
+  padding: 40px 0;
+  text-align: center;
+  background-color: #f7f7f7; /* Optional: adjust background as needed */
+}
+
+.hero-section2 h1 {
+  font-size: 4rem;
+  color: var(--text-color);
+  font-family: "cairo-Bold", sans-serif;
+  margin-bottom: 10px;
+}
+
+.hero-section2 h4 {
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+  font-family: "barada", sans-serif;
+}
+
+/* Advanced Filter Form Styles */
+.advanced-filter-form {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.advanced-filter-form .form-control,
+.advanced-filter-form .form-select {
+  text-align: right;
+  font-size: 1rem;
+}
+
+/* Horizontal Card Styles for Articles */
+.horizontal-card {
+  overflow: hidden;
+  border: 2px solid rgba(247, 211, 203, 0.4);
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease;
+  background-color: #fff;
+}
+.horizontal-card .col-md-4 img{
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Using Bootstrap grid inside the card to split image and content */
+.horizontal-card .row.g-0 {
+  flex-wrap: nowrap;
+}
+
+.horizontal-card .col-md-4 {
+  /* Ensure the image occupies fixed width */
+  max-width: 35%;
+}
+
+.horizontal-card .col-md-8 {
+  /* Content area takes remaining space */
+  padding: 20px;
+}
+
+.horizontal-card .card-title {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  font-family: "cairo-Bold", sans-serif;
+  margin-bottom: 10px;
+}
+
+.horizontal-card .card-text {
+  font-size: 1rem;
+  color: var(--text-muted-color);
+  margin-bottom: 15px;
+}
+
+/* Date and read-more link */
+.horizontal-card .date {
+  font-size: 0.9rem;
+  color: var(--text-muted-color);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.horizontal-card .read-more {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.horizontal-card .read-more:hover {
+  color: var(--primary-color);
+}
+/* Advanced Filter Form - Professional Date Input Style */
+.advanced-filter-form select,
+.advanced-filter-form input {
+  position: relative;
+  padding: 10px 40px 10px 15px; /* Padding adjusted to leave space for the calendar icon */
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: #fff;
+  text-align: right;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none; /* Remove default styling */
+}
+
+/* Custom Calendar Icon using background image */
+.advanced-filter-form input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  filter: invert(40%);
+  cursor: pointer;
+}
+
+/* Firefox specific */
+.advanced-filter-form select:-moz-focus-inner,
+
+.advanced-filter-form input::-moz-focus-inner {
+  border: 0;
+}
+
+/* Hover and focus states */
+
+.advanced-filter-form select:hover,
+.advanced-filter-form select:focus,
+.advanced-filter-form input:hover,
+.advanced-filter-form input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(0, 140, 158, 0.3);
+  outline: none;
+}
+
+
+
+   /* Custom styles for single article page to avoid conflicts */
+   .single-article-pro {
+    font-family: "cairo-Regular", sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  .single-article-pro h1 {
+    font-family: "cairo-Bold", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+  }
+  .single-article-pro .article-meta {
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    margin-bottom: 20px;
+  }
+  .single-article-pro .article-meta img {
+    width: 14px;
+    margin-left: 4px;
+  }
+  .single-article-pro .article-content p {
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  .single-article-pro .author-info {
+    border-top: 1px solid var(--border-color);
+    margin-top: 30px;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .single-article-pro .author-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+  }
+  .single-article-pro .author-details h4 {
+    font-family: "cairo-SemiBold", sans-serif;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+  }
+  .single-article-pro .author-details p {
+    font-size: 1rem;
+    color: var(--text-muted-color);
+  }
+  .single-article-pro .article-tags {
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+  }
+  .single-article-pro .article-tags span {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin: 0 5px 5px 0;
+    font-size: 0.9rem;
+    cursor: default;
+  }
+  /* Sidebar: Similar Articles */
+  .single-article-pro .similar-articles {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .single-article-pro .similar-articles h2 {
+    font-family: "cairo-Bold", sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+  }
+  .single-article-pro .similar-article-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  .single-article-pro .similar-article-item >img {
+    width: 80px;
+    height: 60px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  .single-article-pro .similar-article-item h5 {
+    font-family: "cairo-SemiBold", sans-serif;
+    font-size: 1rem;
+    margin: 0 0 5px;
+    color: var(--text-color);
+  }
+  .single-article-pro .similar-article-item small {
+    font-size: 0.8rem;
+    color: var(--text-muted-color);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+
+
+ 
+    .comments-section {
+      background-color: #f9f9f9;
+      padding: 60px 0;
+      border-top: 1px solid var(--border-color);
+    }
+    .comments-section h2 {
+      font-family: "cairo-Bold", sans-serif;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .comment-form {
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+    }
+    .comment-form .form-label {
+      font-family: "cairo-SemiBold", sans-serif;
+    }
+    .comments-list .comment-item {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    .comments-list .comment-item .d-flex {
+      gap: 10px;
+    }
+    .comments-list .comment-item h5 {
+      font-family: "cairo-SemiBold", sans-serif;
+      margin: 0;
+      font-size: 1.1rem;
+      color: var(--text-color);
+    }
