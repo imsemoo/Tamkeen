@@ -50,6 +50,17 @@ $(document).ready(function () {
     }
   }));
 
+
+  $(".owl-carousel2").owlCarousel($.extend({}, commonOptions, {
+    margin: 20,
+    responsive: {
+      0: { stagePadding: 50, items: 1 },
+      576: { items: 1 },
+      768: { items: 1 },
+      992: { items: 2 }
+    }
+  }));
+
   $(".team-slider").owlCarousel($.extend({}, commonOptions, {
     margin: 10,
     responsive: {
@@ -57,5 +68,7 @@ $(document).ready(function () {
       600: { items: 4 },
       1000: { items: 6 }
     }
+
+    
   }));
 });

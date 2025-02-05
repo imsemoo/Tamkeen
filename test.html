@@ -3,40 +3,341 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>معرض صور للحيوانات اللطيفة</title>
-  <link rel="stylesheet" href="styles.css">
-  <style></style>
+  <title>معرض صور الحيوانات اللطيفة - تأثير السندوتش</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+
+    /* إعادة تعيين بعض الأنماط */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Grape Nuts', cursive;
+      background-color: #eee;
+      text-align: center;
+      padding: 4em 1em;
+    }
+
+    /* شبكة المعرض */
+    .gallery {
+      display: grid;
+      max-width: 1002px;
+      margin: 50px auto 0;
+      grid-gap: 50px;
+      grid-template-columns: repeat(auto-fit, 300px);
+    }
+
+    /* إعداد كل عنصر صورة */
+    figure {
+      width: 300px;
+      perspective: 900px;
+      position: relative;
+    }
+
+    /* تعيين الصورة لكل عنصر باستخدام متغير CSS */
+    figure:nth-child(1) { --imageUrl: url('https://assets.codepen.io/652/the-lucky-neko-CM7a-XBD4AU-unsplash.jpg'); }
+    figure:nth-child(2) { --imageUrl: url('https://assets.codepen.io/652/karsten-winegeart-NE0XGVKTmcA-unsplash.jpg'); }
+    figure:nth-child(3) { --imageUrl: url('https://assets.codepen.io/652/kabo-NjWZ07sPEJE-unsplash.jpg'); }
+    figure:nth-child(4) { --imageUrl: url('https://assets.codepen.io/652/giacomo-lucarini-7M0SG3ZKdlE-unsplash.jpg'); }
+    figure:nth-child(5) { --imageUrl: url('https://assets.codepen.io/652/sergey-semin-Y0WXj3xqJz0-unsplash.jpg'); }
+    figure:nth-child(6) { --imageUrl: url('https://assets.codepen.io/652/jordan-bigelow-X5VoG4MA5aI-unsplash.jpg'); }
+
+    figure img {
+      width: 100%;
+      display: block;
+    }
+
+    /* تأثير السندوتش */
+    .imageRoll {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      background-color: #fff;
+      /* يمكن تعديل الظلال حسب الرغبة */
+      box-shadow: 1em 0.5em 2em #1234, 0 0 5em #1234 inset;
+    }
+
+    /* العنصر الأول من سلسلة <i> (على الحافة اليسرى) */
+    .imageRoll > i {
+      position: absolute;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background-image: 
+        linear-gradient(#0003, #0000 5% 95%, #0003),
+        var(--imageUrl, '');
+      background-position-x: calc(var(--bpx, 0) + 1px);
+      background-size: 300px 300px;
+    }
+
+    /* باقي مستويات <i> */
+    .imageRoll i {
+      position: absolute;
+      left: calc(100% - 1px);
+      width: 6px;
+      height: 100%;
+      transform-style: preserve-3d;
+      transform-origin: left;
+      transition: transform 0.6s var(--delay, 0s) ease-in-out;
+      background-image: 
+        linear-gradient(#0003, #0000 5% 95%, #0003),
+        var(--imageUrl, '');
+      background-position-x: calc(var(--bpx, 0) + 1px);
+      background-size: 300px 300px;
+    }
+
+    /* عند hover، يتم تدوير وتزحزح كل مستوى */
+    .imageRoll:hover i { 
+      transform: rotateY(var(--angle, 0deg)) skewY(var(--skew, 0deg));
+      transition-delay: var(--delay2, 0s);
+    }
+
+    /* إعداد المتغيرات لكل مستوى (في هذا المثال نستخدم 10 مستويات) */
+
+    /* المستوى 1: .imageRoll > i */
+    .imageRoll > i {
+      --bpx: 0px;
+      --delay: 0s;
+      --delay2: 0.6s;
+      --angle: -10deg;
+      --skew: 0deg;
+    }
+
+    /* المستوى 2: .imageRoll > i > i */
+    .imageRoll > i > i {
+      --bpx: -5px;
+      --delay: 0.01s;
+      --delay2: 0.59s;
+      --angle: -10.1deg;
+      --skew: -0.1deg;
+    }
+
+    /* المستوى 3 */
+    .imageRoll > i > i > i {
+      --bpx: -10px;
+      --delay: 0.02s;
+      --delay2: 0.58s;
+      --angle: -10.2deg;
+      --skew: -0.2deg;
+    }
+
+    /* المستوى 4 */
+    .imageRoll > i > i > i > i {
+      --bpx: -15px;
+      --delay: 0.03s;
+      --delay2: 0.57s;
+      --angle: -10.3deg;
+      --skew: -0.3deg;
+    }
+
+    /* المستوى 5 */
+    .imageRoll > i > i > i > i > i {
+      --bpx: -20px;
+      --delay: 0.04s;
+      --delay2: 0.56s;
+      --angle: -10.4deg;
+      --skew: -0.4deg;
+    }
+
+    /* المستوى 6 */
+    .imageRoll > i > i > i > i > i > i {
+      --bpx: -25px;
+      --delay: 0.05s;
+      --delay2: 0.55s;
+      --angle: -10.5deg;
+      --skew: -0.5deg;
+    }
+
+    /* المستوى 7 */
+    .imageRoll > i > i > i > i > i > i > i {
+      --bpx: -30px;
+      --delay: 0.06s;
+      --delay2: 0.54s;
+      --angle: -10.6deg;
+      --skew: -0.6deg;
+    }
+
+    /* المستوى 8 */
+    .imageRoll > i > i > i > i > i > i > i > i {
+      --bpx: -35px;
+      --delay: 0.07s;
+      --delay2: 0.53s;
+      --angle: -10.7deg;
+      --skew: -0.7deg;
+    }
+
+    /* المستوى 9 */
+    .imageRoll > i > i > i > i > i > i > i > i > i {
+      --bpx: -40px;
+      --delay: 0.08s;
+      --delay2: 0.52s;
+      --angle: -10.8deg;
+      --skew: -0.8deg;
+    }
+
+    /* المستوى 10 */
+    .imageRoll > i > i > i > i > i > i > i > i > i > i {
+      --bpx: -45px;
+      --delay: 0.09s;
+      --delay2: 0.51s;
+      --angle: -10.9deg;
+      --skew: -0.9deg;
+    }
+
+    /* تنسيق التسمية التوضيحية للصورة */
+    .imageRoll > figcaption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 10px 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      font-size: 1.5em;
+      text-align: center;
+      z-index: -1;
+    }
+  </style>
 </head>
 <body>
-  <section class="gallery-section">
-    <h1>معرض الحيوانات اللطيفة</h1>
-    <p>تفاصيل المعرض: مجموعة صور للحيوانات الأليفة</p>
-    <div class="gallery">
-      <figure>
-        <img src="https://assets.codepen.io/652/the-lucky-neko-CM7a-XBD4AU-unsplash.jpg" alt="قطة: أولي (12 أسبوع)">
-        <figcaption>قطة: <strong>أولي</strong> (12 أسبوع)</figcaption>
-      </figure>
-      <figure>
-        <img src="https://assets.codepen.io/652/karsten-winegeart-NE0XGVKTmcA-unsplash.jpg" alt="جرو: بارني (9 أسابيع)">
-        <figcaption>جرو: <strong>بارني</strong> (9 أسابيع)</figcaption>
-      </figure>
-      <figure>
-        <img src="https://assets.codepen.io/652/kabo-NjWZ07sPEJE-unsplash.jpg" alt="قطة: والتر (5 سنوات)">
-        <figcaption>قطة: <strong>والتر</strong> (5 سنوات)</figcaption>
-      </figure>
-      <figure>
-        <img src="https://assets.codepen.io/652/giacomo-lucarini-7M0SG3ZKdlE-unsplash.jpg" alt="كلبة: ميس سانشاين (2 سنة)">
-        <figcaption>كلبة: <strong>ميس سانشاين</strong> (2 سنة)</figcaption>
-      </figure>
-      <figure>
-        <img src="https://assets.codepen.io/652/sergey-semin-Y0WXj3xqJz0-unsplash.jpg" alt="قطة: ريس (8 أسابيع)">
-        <figcaption>قطة: <strong>ريس</strong> (8 أسابيع)</figcaption>
-      </figure>
-      <figure>
-        <img src="https://assets.codepen.io/652/jordan-bigelow-X5VoG4MA5aI-unsplash.jpg" alt="جرو: بروس (10 أسابيع)">
-        <figcaption>جرو: <strong>بروس</strong> (10 أسابيع)</figcaption>
-      </figure>
-    </div>
-  </section>
+  <h1>معرض الحيوانات اللطيفة</h1>
+  <p>تفاصيل المعرض: #CodePenChallenge - تأثير السندوتش عند تمرير الماوس</p>
+  <div class="gallery">
+    <!-- مثال على عنصر صورة مع التأثير -->
+    <figure class="imageRoll">
+      <!-- نستخدم 10 مستويات من عناصر <i> -->
+      <i>
+        <i>
+          <i>
+            <i>
+              <i>
+                <i>
+                  <i>
+                    <i>
+                      <i>
+                        <i></i>
+                      </i>
+                    </i>
+                  </i>
+                </i>
+              </i>
+            </i>
+          </i>
+        </i>
+      <figcaption>قطة: <strong>أولي</strong> (12 أسبوع)</figcaption>
+    </figure>
+
+    <figure class="imageRoll">
+      <i>
+        <i>
+          <i>
+            <i>
+              <i>
+                <i>
+                  <i>
+                    <i>
+                      <i>
+                        <i></i>
+                      </i>
+                    </i>
+                  </i>
+                </i>
+              </i>
+            </i>
+          </i>
+        </i>
+      <figcaption>جرو: <strong>بارني</strong> (9 أسابيع)</figcaption>
+    </figure>
+
+    <figure class="imageRoll">
+      <i>
+        <i>
+          <i>
+            <i>
+              <i>
+                <i>
+                  <i>
+                    <i>
+                      <i>
+                        <i></i>
+                      </i>
+                    </i>
+                  </i>
+                </i>
+              </i>
+            </i>
+          </i>
+        </i>
+      <figcaption>قطة: <strong>والتر</strong> (5 سنوات)</figcaption>
+    </figure>
+
+    <figure class="imageRoll">
+      <i>
+        <i>
+          <i>
+            <i>
+              <i>
+                <i>
+                  <i>
+                    <i>
+                      <i>
+                        <i></i>
+                      </i>
+                    </i>
+                  </i>
+                </i>
+              </i>
+            </i>
+          </i>
+        </i>
+      <figcaption>كلبة: <strong>ميس سانشاين</strong> (2 سنة)</figcaption>
+    </figure>
+
+    <figure class="imageRoll">
+      <i>
+        <i>
+          <i>
+            <i>
+              <i>
+                <i>
+                  <i>
+                    <i>
+                      <i>
+                        <i></i>
+                      </i>
+                    </i>
+                  </i>
+                </i>
+              </i>
+            </i>
+          </i>
+        </i>
+      <figcaption>قطة: <strong>ريس</strong> (8 أسابيع)</figcaption>
+    </figure>
+
+    <figure class="imageRoll">
+      <i>
+        <i>
+          <i>
+            <i>
+              <i>
+                <i>
+                  <i>
+                    <i>
+                      <i>
+                        <i></i>
+                      </i>
+                    </i>
+                  </i>
+                </i>
+              </i>
+            </i>
+          </i>
+        </i>
+      <figcaption>جرو: <strong>بروس</strong> (10 أسابيع)</figcaption>
+    </figure>
+  </div>
 </body>
 </html>
