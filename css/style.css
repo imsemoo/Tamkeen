@@ -1578,7 +1578,7 @@ p {
 
 /* Gallery Grid */
 .gallery-section {
-  padding: 60px 0;
+  padding: 0 0 60px 0;
   background: #fff;
 }
 
@@ -1677,4 +1677,11 @@ p {
 .owl-carousel2 
 .card-body{
   
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-nav .nav-link.active::after, 
+  .navbar-nav .show>.nav-link::after {
+    display: none;
+  }
 }
