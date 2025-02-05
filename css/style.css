@@ -1542,3 +1542,112 @@ p {
   margin: 0;
   font-size: 1.1rem;
 }
+
+
+
+
+    /* Filter Bar */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .filter-bar button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      background: var(--primary-color);
+      color: #fff;
+      font-family: "cairo-SemiBold", sans-serif;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .filter-bar button:hover,
+    .filter-bar button.active {
+      background: var(--secondary-color);
+    }
+
+    /* Gallery Grid */
+    .gallery-section {
+      padding: 60px 0;
+      background: #fff;
+    }
+
+    .gallery-section .section-title {
+     
+      margin-bottom: 10px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #fff;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img,
+    .gallery-item video {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* Classification Overlay Label */
+    .gallery-item .overlay-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      font-family: "cairo-SemiBold", sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .gallery-item:hover .overlay-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Load More Button */
+    .load-more-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .load-more-container button {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      background: var(--primary-color);
+      color: #fff;
+      font-family: "cairo-SemiBold", sans-serif;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .load-more-container button:hover {
+      background: var(--secondary-color);
+    }
