@@ -694,6 +694,38 @@
         opacity: 0,
         x: 30
       }, "-=0.5");
+
+       // Select all buttons and set a common transform origin
+  document.querySelectorAll(".btn").forEach(btn => {
+    gsap.set(btn, { transformOrigin: "center center" });
+
+    // Create a GSAP timeline for the hover effect (paused by default)
+    let hoverTl = gsap.timeline({ paused: true });
+    hoverTl.to(btn, { 
+      duration: 0.3, 
+      scale: 1.08, 
+      // Use a lighter, subtler shadow effect for better visual comfort:
+      boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)",
+      ease: "power2.out" 
+    });
+    
+    // Add event listeners for mouseenter and mouseleave
+    btn.addEventListener("mouseenter", () => {
+      hoverTl.play();
+      // If the button has an icon, rotate it softly
+      let icon = btn.querySelector("i");
+      if (icon) {
+        gsap.to(icon, { duration: 0.5, rotation: 360, ease: "power2.out" });
+      }
+    });
+    btn.addEventListener("mouseleave", () => {
+      hoverTl.reverse();
+      let icon = btn.querySelector("i");
+      if (icon) {
+        gsap.to(icon, { duration: 0.5, rotation: 0, ease: "power2.out" });
+      }
+    });
+  });
   </script>
 </body>
 
