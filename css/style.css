@@ -14,7 +14,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+.owl-carousel .owl-item .card-img-top img{
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
 @font-face {
   font-family: "cairo-Regular";
   src: url(../fonts/Cairo-Regular.ttf);
