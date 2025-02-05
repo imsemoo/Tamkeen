@@ -445,7 +445,7 @@ p {
 }
 
 .date {
-  font-size: 1rem;
+  font-size: 14px;
   color: var(--text-muted-color);
   display: flex;
   align-items: center;
