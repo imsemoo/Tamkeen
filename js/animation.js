@@ -1,5 +1,6 @@
- // Animate all sections with class "section" as they come into view
- gsap.utils.toArray('.section').forEach(section => {
+ // Animate all elements with class "section" as they come into view
+  // This uses GSAP's ScrollTrigger to animate each .section when it reaches the viewport.
+  gsap.utils.toArray('.section').forEach(section => {
     gsap.from(section, {
       opacity: 0,
       y: 50,
@@ -12,7 +13,9 @@
       }
     });
   });
-  // GSAP timeline for the hero section buttons (as before)
+
+  // GSAP timeline for the hero section elements
+  // This controls how the hero content and buttons appear on page load.
   gsap.timeline({
       defaults: {
         duration: 1,
@@ -36,20 +39,26 @@
       opacity: 0,
       x: 30
     }, "-=0.5");
-  // Button Hover Effect with GSAP (subtle shadow change)
+
+  // Button Hover Effect with GSAP (subtle scale and shadow)
+  // Adds a hover animation to buttons with class .btn.
   document.querySelectorAll(".btn").forEach(btn => {
     gsap.set(btn, {
       transformOrigin: "center center"
     });
-    let hoverTl = gsap.timeline({
-      paused: true
-    });
+
+    // Create a timeline for the hover effect, initially paused
+    let hoverTl = gsap.timeline({ paused: true });
+
     hoverTl.to(btn, {
       duration: 0.3,
       scale: 1.08,
       boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.15)",
       ease: "power2.out"
     });
+
+    // On mouse enter, play the hover timeline
+    // Also rotate the icon if present
     btn.addEventListener("mouseenter", () => {
       hoverTl.play();
       let icon = btn.querySelector("i");
@@ -61,6 +70,9 @@
         });
       }
     });
+
+    // On mouse leave, reverse the hover timeline
+    // Reset icon rotation if present
     btn.addEventListener("mouseleave", () => {
       hoverTl.reverse();
       let icon = btn.querySelector("i");
@@ -73,25 +85,9 @@
       }
     });
   });
- 
- 
- 
- // Apply ScrollTrigger animation to all sections for a smooth entrance effect
- gsap.utils.toArray("section").forEach(section => {
-    gsap.from(section, {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: section,
-        start: "top 80%",
-        toggleActions: "play none none reverse"
-      }
-    });
-  });
 
-  // Filter functionality
+  // Filter functionality for gallery items
+  // This allows filtering items by category when clicking filter buttons.
   const filterButtons = document.querySelectorAll(".filter-btn");
   const galleryItems = document.querySelectorAll(".gallery-item");
 
@@ -103,23 +99,27 @@
 
       const filterValue = this.getAttribute("data-filter");
       galleryItems.forEach(item => {
+        // Show the item if filter matches or if filter is "all"
         if (filterValue === "all" || item.getAttribute("data-category") === filterValue) {
           item.style.display = "block";
           gsap.fromTo(item, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
         } else {
+          // Otherwise hide the item
           item.style.display = "none";
         }
       });
     });
   });
 
-  // Load More functionality (initially show 6 items)
+  // Load More functionality
+  // Initially shows 6 items, then loads 3 more each time the button is clicked.
   let itemsToShow = 6;
   galleryItems.forEach((item, index) => {
     if (index >= itemsToShow) {
       item.style.display = "none";
     }
   });
+
   document.getElementById("loadMoreBtn").addEventListener("click", () => {
     itemsToShow += 3;
     galleryItems.forEach((item, index) => {
@@ -129,3 +129,6 @@
       }
     });
   });
+  
+  // Note: A similar ScrollTrigger code for <section> elements was removed
+  // to avoid potential double animations or conflicts with .section.
