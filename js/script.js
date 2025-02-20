@@ -44,9 +44,9 @@ $(document).ready(function () {
     margin: 20,
     responsive: {
       0: { stagePadding: 50, items: 1 },
-      576: { items: 2 },
-      768: { items: 3 },
-      992: { items: 4 }
+      576: { items: 1 },
+      768: { items: 1 },
+      992: { items: 3 }
     }
   }));
 
